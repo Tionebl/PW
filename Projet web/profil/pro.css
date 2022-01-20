@@ -52,7 +52,7 @@ button{
 	cursor: pointer; 
 }
 
-.file-change{ /* changement de couleur */
+.file-change{ /* changement de couleur avec hover au passage */
     cursor: pointer;
     color: black;
     font-weight: bold;
@@ -61,7 +61,7 @@ button{
     color: #cf6e47;
 }
 
-.input-file {
+.input-file { /* boutons files invisible mais cliquable */
     display: none;
 }
 .pro-img{
@@ -81,9 +81,6 @@ h5{
 
 }
 @media screen and (min-width: 767px) and (max-width:1024px){
-    body{
-		overflow: scroll;
-	}
     .container1{
         margin: 20px auto;
         width: 50%;
@@ -100,9 +97,6 @@ h5{
     }
 
 @media screen and (min-width: 1025px){
-    body{
-		overflow: scroll;
-	}
     .container1{
         margin: 20px auto;
         width: 50%;
