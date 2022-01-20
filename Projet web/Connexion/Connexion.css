@@ -1,0 +1,158 @@
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh; /* pour s'adapter à la taille de la fenêtre */
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #4747d4, #f0f0f0, #4747d4); /* Pour un fond d'écran avec une nuances de couleurs */
+}
+.main{ /* bloc principal */
+	width: 350px;
+	height: 500px;
+	background: rgb(136, 136, 250);
+	overflow: hidden;/* pour éviter la barre de défilement */
+	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+#chk{
+	display: none; /* rendre invisible l'icone du check */
+}
+.inscription{ /* l'onglet inscription et connexion occupe 100% de la heigh et de la width du */
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{ /* cf: settings des inscriptions */
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 50px;
+	font-weight: bold; /* texte en gras */
+	cursor: pointer; /* la souris passe au pointer au passage */
+	transition: .5s ease-in-out; /* degrossissement du texte lors du swith d'onglet */
+}
+input{ /* zone d'entrée */
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none; /* pas de bordures */
+	outline: none; /* dessin bordure */
+	border-radius: 5px;
+}
+
+button{
+    width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #4747d4;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer; 
+}
+.home a{ /* boutton de retour à l'accueil */
+    text-decoration: none;
+    width: 20%;
+	margin: 10px auto;
+	justify-content: center;
+    align-items: center;
+	display: flex;
+	color: #fff;
+	background: #4747d4;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+button:hover{ /* changement de couleur au passage de la souris pour le boutton inscription */
+	background: #0e0d0d;
+}
+.connexion{
+	height: 460px; /* taille de la fenêtre "pop up" */
+	background: #eee;
+	border-radius: 60% / 10%; /* j'arrondis les coins */
+	/* Il va s'agir ici de créer l'animation du pop up */
+	transform: translateY(-190px); /* départ */
+	transition: .8s ease-in-out; /* vitesse de transition */
+}
+.connexion label{ 
+	color: #4747d4; /* couleur du boutton connexion */
+	transform: scale(.6); /* changement de taille lorsque l'onglet est cliqué */
+}
+
+#chk:checked ~ .connexion{
+	transform: translateY(-500px); /* changement de position de l'onglet connexion */
+}
+#chk:checked ~ .connexion label{
+	transform: scale(1);	/* changement de taille de "connexion" */
+}
+#chk:checked ~ .inscription label{
+	transform: scale(.6);/* changement de taille d"inscription */
+}
+
+/* il s'agit ici de faire les médias quaries pour s'adapter au support.
+ On cherche a ce que le main occupe tout l'écran lorsque l'on passe en mode tablette ou téléphone */
+@media screen and (min-width: 320px) and (max-width: 768px){ /* mode smartphone 
+	// a voir ( orientation: landscape/ paysage OU lock rotation */
+	
+	.main{ /* changement d'échelle, le main occupe désormais 100% de l'espace */
+		width: 100%; 
+		height: 100%;
+		overflow-y: auto
+		 
+	}
+	.connexion{
+		height: 800px; /* changement de taille d'onglet co pour qu'il ne fasse pas une bulle */
+		transform: translateY(100px) /* pour s'adapter au support et que l'onglet co reste ne bas sans que l'on ne voit ses onglets */
+		
+	}
+	#chk:checked ~ .connexion{
+		transform: translateY(-300px); /* idem pour l'animation */
+	}
+	#chk:checked ~ .connexion label{
+		transform: scale(.9); /* échelle de la police d'écriture */
+		}
+}
+@media screen and (min-width: 768px) and (max-device-width : 1024px) { /* tablette */
+
+	.main{
+		width: 100%;
+		height: 100%;
+	    overflow-y: auto; /* pour le scroll */
+	}
+	.connexion{
+		height: 500px;
+		transform: translateY(100px)
+		
+	}
+	#chk:checked ~ .connexion{
+		transform: translateY(-300px);
+	}
+	
+	#chk:checked ~ .connexion label{
+	transform: scale(.9);
+	}
+
+	button{
+		width: 40%; /* changement taille du bouton inscription */
+	}
+}
